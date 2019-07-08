@@ -10,16 +10,29 @@ humandate: "Aug 21-22, 2019"    # human-readable dates for the workshop (e.g., "
 humantime: "9:00am-5:00pm"      # human-readable times for the workshop (e.g., "9:00 am - 4:30 pm")
 startdate: 2019-08-21           # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
 enddate: 2019-08-22             # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
-instructor: ["Wirawan Purwanto", "Terry Stilwell", "Dan Barshis", "Sophie Clayton"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
+instructor: ["Dan Barshis", "Sophie Clayton", "Terry Stilwell", "Wirawan Purwanto"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
 helper: ["TBD"]                 # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
 email: ["wpurwant@odu.edu", "tstilwel@odu.edu"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
 collaborative_notes: https://pad.carpentries.org/2019-08-21-odu            # optional: URL for the workshop collaborative notes, e.g. an Etherpad or Google Docs document
-eventbrite: 58374851753FIXME    # optional: alphanumeric key for Eventbrite registration, e.g., "1234567890AB" (if Eventbrite is being used)
+eventbrite: 64198584695         # optional: alphanumeric key for Eventbrite registration, e.g., "1234567890AB" (if Eventbrite is being used)
 ---
 
 <p style="color:red">
 **PAGE STILL UNDER CONSTRUCTION. PLEASE CHECK BACK LATER**
 </p>
+
+The Research Computing Services at ODU is pleased to host our
+first locally organized Software Carpentry workshop!
+This two-day workshop teaches **Python**, **UNIX shell**, and **Git**,
+aimed at empowering students and researchers to be effective
+in computing.
+Students and researchers from any domain (science, engineering,
+business, social sciences, humanities) are welcome.
+
+There is no knowledge/skill/computing prerequisite to attend.
+Please prepare and bring a laptop, according to the
+[Setup Instruction](#setup)
+below.
 
 {% comment %} See instructions in the comments below for how to edit specific sections of this workshop template. {% endcomment %}
 
@@ -40,6 +53,15 @@ eventbrite: 58374851753FIXME    # optional: alphanumeric key for Eventbrite regi
   are not using Eventbrite, or leave it in, since it will not be
   displayed if the 'eventbrite' field in the header is not set.
 {% endcomment %}
+{% if page.eventbrite %}
+<iframe
+  src="https://www.eventbrite.com/tickets-external?eid={{page.eventbrite}}&ref=etckt"
+  frameborder="0"
+  width="100%"
+  height="280px"
+  scrolling="auto">
+</iframe>
+{% endif %}
 
 <h2 id="general">General Information</h2>
 
@@ -154,8 +176,16 @@ eventbrite: 58374851753FIXME    # optional: alphanumeric key for Eventbrite regi
 {% endcomment %}
 <h2 id="surveys">Surveys</h2>
 <p>Please be sure to complete these surveys before and after the workshop.</p>
-<p><a href="https://www.surveymonkey.com/r/D26J6WN">Pre-workshop Survey</a></p>
-<p><a href="https://www.surveymonkey.com/r/ZB59K7J">Post-workshop Survey</a></p>
+{% if site.carpentry == "swc" %}
+<p><a href="{{ site.swc_pre_survey }}{{ site.github.project_title }}">Pre-workshop Survey</a></p>
+<p><a href="{{ site.swc_post_survey }}{{ site.github.project_title }}">Post-workshop Survey</a></p>
+{% elsif site.carpentry == "dc" %}
+<p><a href="{{ site.dc_pre_survey }}{{ site.github.project_title }}">Pre-workshop Survey</a></p>
+<p><a href="{{ site.dc_post_survey }}{{ site.github.project_title }}">Post-workshop Survey</a></p>
+{% elsif site.carpentry == "lc" %}
+<p><a href="{{ site.lc_pre_survey }}{{ site.github.project_title }}">Pre-workshop Survey</a></p>
+<p><a href="{{ site.lc_post_survey }}{{ site.github.project_title }}">Post-workshop Survey</a></p>
+{% endif %}
 
 <hr/>
 

@@ -144,6 +144,23 @@ below.
   special instructions.
 {% endcomment %}
 
+<p id="accessibility">
+  <strong>Accessibility:</strong> We are committed to making this workshop
+  accessible to everybody.
+  The workshop organizers have checked that:
+</p>
+<ul>
+  <li>The room is wheelchair / scooter accessible.</li>
+  <li>Accessible restrooms are available.</li>
+</ul>
+
+Materials will be provided in advance of the workshop and
+large-print handouts are available if needed by notifying the
+organizers in advance.
+Should you have any other accessibility needs, please
+<a href="#contact">contact us</a>
+and we will make our best attempt to provide them.
+
 {% comment %}
   CONTACT EMAIL ADDRESS
 

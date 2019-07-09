@@ -17,9 +17,11 @@ collaborative_notes: https://pad.carpentries.org/2019-08-21-odu            # opt
 eventbrite: 64198584695         # optional: alphanumeric key for Eventbrite registration, e.g., "1234567890AB" (if Eventbrite is being used)
 ---
 
+<!--
 <p style="color:red">
 **PAGE STILL UNDER CONSTRUCTION. PLEASE CHECK BACK LATER**
 </p>
+-->
 
 The Research Computing Services at ODU is pleased to host our
 first locally organized Software Carpentry workshop!
@@ -260,6 +262,22 @@ and we will make our best attempt to provide them.
   please preview your site before committing, and make sure to run
   'tools/check' as well.
 {% endcomment %}
+<h2 id="syllabus">Syllabus</h2>
+<p style="color:red">
+**IMPORTANT**
+Syllabus is still being updated and will be finalized a week
+before the workshop starts.
+</p>
+
+{% if page.carpentry == "swc" %}
+  {% include sc/syllabus.html %}
+{% elsif page.carpentry == "dc" %}
+  {% include dc/syllabus.html %}
+{% elsif page.carpentry == "lc" %}
+  {% include lc/syllabus.html %}
+{% endif %}
+
+<hr/>
 
 {% comment %}
   SETUP

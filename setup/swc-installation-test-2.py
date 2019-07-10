@@ -109,7 +109,7 @@ CHECKS = [
 # Python
     'python',
     'ipython',         # Command line tool
-    'IPython',         # Python package
+    'jupyter',         # Former IPython features, notebook, etc.
     'argparse',        # Useful for utility scripts
     'numpy',
     'scipy',
@@ -160,7 +160,7 @@ class DependencyError (Exception):
         ('*', '*', 'google-chrome'): 'https://www.google.com/intl/en/chrome/browser/',
         ('*', '*', 'hg'): 'http://mercurial.selenic.com/',
         ('*', '*', 'mercurial'): 'http://mercurial.selenic.com/',
-        ('*', '*', 'IPython'): 'http://ipython.org/install.html',
+        ('*', '*', 'jupyter'): 'http://jupyter.org/install.html',
         ('*', '*', 'ipython'): 'http://ipython.org/install.html',
         ('*', '*', 'jinja'): 'http://jinja.pocoo.org/docs/intro/#installation',
         ('*', '*', 'kate'): 'http://kate-editor.org/get-it/',
@@ -190,7 +190,7 @@ class DependencyError (Exception):
         ('*', '*', 'sublime-text'): 'http://www.sublimetext.com/2',
         ('*', '*', 'sympy'): 'http://docs.sympy.org/dev/install.html',
         ('Darwin', '*', 'textmate'): 'http://macromates.com/',
-        ('Darwin', '*', 'textwrangler'): 'http://www.barebones.com/products/textwrangler/download.html',
+        ('Darwin', '*', 'bbedit'): 'http://www.barebones.com/products/bbedit/download.html',
         ('*', '*', 'tornado'): 'http://www.tornadoweb.org/',
         ('*', '*', 'vim'): 'http://www.vim.org/download.php',
         ('Darwin', '*', 'xcode'): 'https://developer.apple.com/xcode/',
@@ -808,9 +808,9 @@ for paths,name,long_name in [
         ([_os.path.join(_ROOT_PATH, 'Applications', 'TextMate.app',
                         'Contents', 'version.plist')],
          'textmate', 'TextMate'),
-        ([_os.path.join(_ROOT_PATH, 'Applications', 'TextWrangler.app',
+        ([_os.path.join(_ROOT_PATH, 'Applications', 'BBEdit.app',
                         'Contents', 'version.plist')],
-         'textwrangler', 'TextWrangler'),
+         'bbedit', 'BBEdit'),
         ([_os.path.join(_ROOT_PATH, 'Applications', 'Safari.app',
                         'Contents', 'version.plist')],
          'safari', 'Safari'),
@@ -835,14 +835,16 @@ for package,name,long_name,minimum_version,and_dependencies in [
          CHECKER['py.test'].minimum_version, None),
         ('jinja2', 'jinja', 'Jinja', (2, 6), None),
         ('zmq', 'pyzmq', 'PyZMQ', (2, 1, 4), None),
-        ('IPython', None, 'IPython Python package',
-         CHECKER['ipython'].minimum_version, [
+        ('jupyter', None, 'Jupyter',
+        # FIXME should use minimum version for Jupyter
+        # CHECKER['ipython'].minimum_version, [
+         None, [
              'jinja',
              'tornado',
              'pyzmq',
              VirtualDependency(
                  name='virtual-browser-ipython',
-                 long_name='IPython-compatible web browser',
+                 long_name='Jupyter-compatible web browser',
                  or_dependencies=[
                      CommandDependency(
                          command=CHECKER['firefox'].command,
@@ -946,7 +948,7 @@ for name,long_name,dependencies in [
             'notepad++',
             'sublime-text',
             'textmate',
-            'textwrangler',
+            'bbedit',
             'other-editor',  # last because it requires user interaction
             )),
         ('virtual-browser', 'web browser', (
